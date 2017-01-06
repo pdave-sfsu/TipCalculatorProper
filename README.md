@@ -35,9 +35,13 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 Describe any challenges encountered while building the app.
 
+I was not aware that there was a video tutorial with help on how to create a tip calculator. I made one myself at first, which was a challenge, but I learned a lot. 
+I also had issues since the video is pretty recent but still somewhat outdated. However, I was able to solve those situations by looking online for solutions. Since I was not too familiar with the syntax in swift, I had to learn it first. So, I learned the major concepts of Swift such as Optionals and general syntax.
+This was a very fun project. I feel like I am going to learn a lot.
+
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright [2017] [Poojan Dave]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
