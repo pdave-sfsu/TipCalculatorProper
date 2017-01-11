@@ -69,6 +69,7 @@ class ViewController: UIViewController {
         
         let perPerson = total / numOfPeople
         
+        
         let formatter = NumberFormatter()
         formatter.numberStyle = NumberFormatter.Style.decimal
         formatter.minimumFractionDigits = 2
