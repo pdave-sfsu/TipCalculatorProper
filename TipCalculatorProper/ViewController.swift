@@ -60,7 +60,14 @@ class ViewController: UIViewController {
         let tip = bill * tipPercentages[tipControl.selectedSegmentIndex]
         let total = bill + tip
         
-        let perPerson = total / Double(personChoices[personSegmentedControl.selectedSegmentIndex])
+        var numOfPeople = Double(personChoices[personSegmentedControl.selectedSegmentIndex])
+        
+        if (numOfPeople < 1) {
+            numOfPeople = 1
+            userDefaults.set(1, forKey: "customPerson")
+        }
+        
+        let perPerson = total / numOfPeople
         
         let formatter = NumberFormatter()
         formatter.numberStyle = NumberFormatter.Style.decimal
