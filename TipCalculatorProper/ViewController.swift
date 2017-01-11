@@ -19,24 +19,20 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
-        tipControl.selectedSegmentIndex = userDefaults.integer(forKey: "MainChoice")
-        
+        tipControl.selectedSegmentIndex = userDefaults.integer(forKey: "SettingsTipChoice")
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        tipControl.selectedSegmentIndex = userDefaults.integer(forKey: "TipChoice")
+        tipControl.selectedSegmentIndex = userDefaults.integer(forKey: "SettingsTipChoice")
             
         calculateTip(true as AnyObject)
-        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     @IBAction func OnTap(_ sender: UITapGestureRecognizer) {

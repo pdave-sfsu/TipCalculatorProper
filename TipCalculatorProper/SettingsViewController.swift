@@ -16,35 +16,17 @@ class SettingsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
         
-        DefaultSegmentedControl.selectedSegmentIndex = userDefaults.integer(forKey: "TipChoice")
+        DefaultSegmentedControl.selectedSegmentIndex = userDefaults.integer(forKey: "SettingsTipChoice")
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func DefaultTipChange(_ sender: Any) {
         
-        userDefaults.set(DefaultSegmentedControl.selectedSegmentIndex, forKey: "TipChoice")
-        
-        userDefaults.set(DefaultSegmentedControl.selectedSegmentIndex, forKey: "MainChoice")
-        
+        userDefaults.set(DefaultSegmentedControl.selectedSegmentIndex, forKey: "SettingsTipChoice")
     }
-    
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
