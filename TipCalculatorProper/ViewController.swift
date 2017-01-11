@@ -15,10 +15,23 @@ class ViewController: UIViewController {
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var tipControl: UISegmentedControl!
     
+    let userDefaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        tipControl.selectedSegmentIndex = userDefaults.integer(forKey: "MainChoice")
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        tipControl.selectedSegmentIndex = userDefaults.integer(forKey: "TipChoice")
+            
+        calculateTip(true as AnyObject)
+        
     }
 
     override func didReceiveMemoryWarning() {

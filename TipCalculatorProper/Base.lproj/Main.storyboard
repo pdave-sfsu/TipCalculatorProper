@@ -118,14 +118,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Default Tip Amount:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="a3E-MC-MkD">
-                                <rect key="frame" x="16" y="81" width="175" height="21"/>
+                                <rect key="frame" x="16" y="111" width="175" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="pNr-fK-Tjc">
-                                <rect key="frame" x="16" y="134" width="343" height="29"/>
+                                <rect key="frame" x="16" y="164" width="343" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="18%"/>
@@ -133,6 +133,7 @@
                                     <segment title="25%"/>
                                 </segments>
                                 <connections>
+                                    <action selector="DefaultTipChange:" destination="gwn-rU-Fmb" eventType="valueChanged" id="HUv-Q6-inM"/>
                                     <action selector="calculateTip:" destination="BYZ-38-t0r" eventType="valueChanged" id="ncr-qT-EVw"/>
                                 </connections>
                             </segmentedControl>
@@ -140,6 +141,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="jAg-Km-vLG"/>
+                    <connections>
+                        <outlet property="DefaultSegmentedControl" destination="pNr-fK-Tjc" id="48C-aV-WLw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="btP-vw-Sfu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
