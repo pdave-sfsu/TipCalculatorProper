@@ -14,6 +14,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var tipLabel: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var tipControl: UISegmentedControl!
+    @IBOutlet weak var perPersonLabel: UILabel!
+    @IBOutlet weak var personSegmentedControl: UISegmentedControl!
     
     let userDefaults = UserDefaults.standard
     
@@ -21,12 +23,16 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         tipControl.selectedSegmentIndex = userDefaults.integer(forKey: "SettingsTipChoice")
+        
+        personSegmentedControl.selectedSegmentIndex = userDefaults.integer(forKey: "SettingsPersonChoice")
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         tipControl.selectedSegmentIndex = userDefaults.integer(forKey: "SettingsTipChoice")
+        
+        personSegmentedControl.selectedSegmentIndex = userDefaults.integer(forKey: "SettingsPersonChoice")
             
         calculateTip(true as AnyObject)
     }
@@ -46,9 +52,15 @@ class ViewController: UIViewController {
         
         tipPercentages[3] = userDefaults.double(forKey: "customTip") / 100
         
+        var personChoices = [1, 2, 3, 1]
+        
+        personChoices[3] = userDefaults.integer(forKey: "customPerson")
+        
         let bill = Double(billTextField.text!) ?? 0
         let tip = bill * tipPercentages[tipControl.selectedSegmentIndex]
         let total = bill + tip
+        
+        let perPerson = total / Double(personChoices[personSegmentedControl.selectedSegmentIndex])
         
         let formatter = NumberFormatter()
         formatter.numberStyle = NumberFormatter.Style.decimal
@@ -58,6 +70,7 @@ class ViewController: UIViewController {
         tipLabel.text = formatter.string(from: NSNumber(value: tip))
         
         totalLabel.text = formatter.string(from: NSNumber(value: total))
+        perPersonLabel.text = formatter.string(from: NSNumber(value: perPerson))
         
     }
 

@@ -10,6 +10,9 @@ import UIKit
 
 class SettingsViewController: UIViewController {
     
+    @IBOutlet weak var customPersonTextField: UITextField!
+    @IBOutlet weak var defaultPersonSegmentedControl: UISegmentedControl!
+    
     @IBOutlet weak var customTipTextField: UITextField!
     @IBOutlet weak var defaultSegmentedControl: UISegmentedControl!
     
@@ -21,10 +24,20 @@ class SettingsViewController: UIViewController {
         defaultSegmentedControl.selectedSegmentIndex = userDefaults.integer(forKey: "SettingsTipChoice")
         
         customTipTextField.text = String(userDefaults.double(forKey: "customTip"))
+        
+        defaultPersonSegmentedControl.selectedSegmentIndex = userDefaults.integer(forKey: "SettingsPersonChoice")
+        
+        customPersonTextField.text = String(userDefaults.double(forKey: "customPerson"))
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    @IBAction func onTap(_ sender: Any) {
+        
+        view.endEditing(true)
+        
     }
     
     @IBAction func DefaultTipChange(_ sender: Any) {
@@ -40,4 +53,18 @@ class SettingsViewController: UIViewController {
         
     }
 
+    @IBAction func defaultPersonChanged(_ sender: Any) {
+        
+        userDefaults.set(defaultPersonSegmentedControl.selectedSegmentIndex, forKey: "SettingsPersonChoice")
+        
+    }
+    
+    @IBAction func customPersonChange(_ sender: Any) {
+        
+        let customPerson = Double(customPersonTextField.text!) ?? 1
+        
+        userDefaults.set(customPerson, forKey: "customPerson")
+        
+    }
+    
 }
