@@ -10,6 +10,7 @@ import UIKit
 
 class SettingsViewController: UIViewController {
     
+    @IBOutlet weak var customTipTextField: UITextField!
     @IBOutlet weak var defaultSegmentedControl: UISegmentedControl!
     
     let userDefaults = UserDefaults.standard
@@ -18,6 +19,8 @@ class SettingsViewController: UIViewController {
         super.viewDidLoad()
         
         defaultSegmentedControl.selectedSegmentIndex = userDefaults.integer(forKey: "SettingsTipChoice")
+        
+        customTipTextField.text = String(userDefaults.double(forKey: "customTip"))
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,6 +30,14 @@ class SettingsViewController: UIViewController {
     @IBAction func DefaultTipChange(_ sender: Any) {
         
         userDefaults.set(defaultSegmentedControl.selectedSegmentIndex, forKey: "SettingsTipChoice")
+    }
+    
+    @IBAction func customTipChanged(_ sender: Any) {
+        
+        let customTip = Double(customTipTextField.text!) ?? 0
+        
+        userDefaults.set(customTip, forKey: "customTip")
+        
     }
 
 }
