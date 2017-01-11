@@ -36,6 +36,19 @@ class ViewController: UIViewController {
             
         calculateTip(true as AnyObject)
     }
+    
+    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+        
+        if event?.subtype == UIEventSubtype.motionShake {
+            tipControl.selectedSegmentIndex = userDefaults.integer(forKey: "SettingsTipChoice")
+            
+            personSegmentedControl.selectedSegmentIndex = userDefaults.integer(forKey: "SettingsPersonChoice")
+            
+            billTextField.text = ""
+            
+            calculateTip(true as AnyObject)
+        }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
