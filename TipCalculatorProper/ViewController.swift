@@ -87,10 +87,10 @@ class ViewController: UIViewController {
         formatter.minimumFractionDigits = 2
         formatter.maximumFractionDigits = 2
         
-        tipLabel.text = formatter.string(from: NSNumber(value: tip))
+        tipLabel.text = "$" + formatter.string(from: NSNumber(value: tip))!
         
-        totalLabel.text = formatter.string(from: NSNumber(value: total))
-        perPersonLabel.text = formatter.string(from: NSNumber(value: perPerson))
+        totalLabel.text = "$" + formatter.string(from: NSNumber(value: total))!
+        perPersonLabel.text = "$" + formatter.string(from: NSNumber(value: perPerson))!
         
     }
 
