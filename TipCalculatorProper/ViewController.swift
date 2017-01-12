@@ -65,9 +65,9 @@ class ViewController: UIViewController {
         
         tipPercentages[3] = userDefaults.double(forKey: "customTip") / 100
         
-        var personChoices = [1, 2, 3, 1]
+        var personChoices = [1.0, 2.0, 3.0, 1.0]
         
-        personChoices[3] = userDefaults.integer(forKey: "customPerson")
+        personChoices[3] = userDefaults.double(forKey: "customPerson")
         
         let bill = Double(billTextField.text!) ?? 0
         let tip = bill * tipPercentages[tipControl.selectedSegmentIndex]
