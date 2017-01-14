@@ -13,18 +13,15 @@ class ViewController: UIViewController {
     @IBOutlet weak var billTextField: UITextField!
     @IBOutlet weak var tipLabel: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
-    @IBOutlet weak var tipControl: UISegmentedControl!
     @IBOutlet weak var perPersonLabel: UILabel!
+    @IBOutlet weak var tipControl: UISegmentedControl!
     @IBOutlet weak var personSegmentedControl: UISegmentedControl!
     
     let userDefaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        tipControl.selectedSegmentIndex = userDefaults.integer(forKey: "SettingsTipChoice")
-        
-        personSegmentedControl.selectedSegmentIndex = userDefaults.integer(forKey: "SettingsPersonChoice")
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -73,12 +70,7 @@ class ViewController: UIViewController {
         let tip = bill * tipPercentages[tipControl.selectedSegmentIndex]
         let total = bill + tip
         
-        var numOfPeople = Double(personChoices[personSegmentedControl.selectedSegmentIndex])
-        
-        if (numOfPeople < 1) {
-            numOfPeople = 1
-            userDefaults.set(1, forKey: "customPerson")
-        }
+        let numOfPeople = Double(personChoices[personSegmentedControl.selectedSegmentIndex])
         
         let perPerson = total / numOfPeople
         
@@ -90,6 +82,7 @@ class ViewController: UIViewController {
         tipLabel.text = "$" + formatter.string(from: NSNumber(value: tip))!
         
         totalLabel.text = "$" + formatter.string(from: NSNumber(value: total))!
+        
         perPersonLabel.text = "$" + formatter.string(from: NSNumber(value: perPerson))!
         
     }

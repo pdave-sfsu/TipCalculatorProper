@@ -61,8 +61,12 @@ class SettingsViewController: UIViewController {
     
     @IBAction func customPersonChange(_ sender: Any) {
         
-        let customPerson = Double(customPersonTextField.text!) ?? 1
+        var customPerson = Double(customPersonTextField.text!) ?? 1
         
+        if customPerson < 1 {
+            customPerson = 1
+        }
+    
         userDefaults.set(customPerson, forKey: "customPerson")
         
     }
